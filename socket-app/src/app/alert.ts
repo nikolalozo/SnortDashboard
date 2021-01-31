@@ -1,0 +1,35 @@
+export interface Alert {
+    action?: string;
+    class?: string;
+    dir?: string;
+    dst_addr?: string;
+    dst_port?: string;
+    eth_dst?: string;
+    eth_len?: string;
+    eth_src?: string;
+    eth_type?: string;
+    gid?: string;
+    ip_id?: string;
+    ip_len?: string;
+    msg?: string;
+    mpls?: string;
+    pkt_gen?: string;
+    pkt_len?: string;
+    pkt_num?: string;
+    priority?: string;
+    proto?: string;
+    rev?: string;
+    rule?: string;
+    service?: string;
+    sid?: string;
+    src_addr?: string;
+    src_port?: string;
+    tcp_ack?: string;
+    tcp_len?: string;
+    tcp_seq?: string;
+    tcp_win?: string;
+    tcp_flags?: string;
+    tos?: string;
+    ttl?: string;
+    timestamp?: string;
+}

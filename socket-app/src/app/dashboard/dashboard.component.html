@@ -1,0 +1,93 @@
+<div class="dashboard">
+    <div class="title">
+        Snort IDS Dashboard
+    </div>
+    <div class="log">
+        <div class="txt">Live alerts log</div>
+        <div class="overflow-auto">
+            <accordion [isAnimated]="true" *ngFor="let alert of alerts">
+                <accordion-group
+                    heading="[ Priority: {{getPriority(alert.priority)}} ] Classification: {{alert.class}} | Source IP: {{alert.src_addr}} | Protocol: {{alert.proto}} | Timestamp: {{alert.timestamp}}">
+                    <div class="test">
+                        <div class="test-col">
+                            <div class="nesto">Action: {{alert.action}}</div>
+                            <div class="nesto">Classification: {{alert.class}}</div>
+                            <div class="nesto">Dir: {{alert.dir}}</div>
+                            <div class="nesto">Destination IP: {{alert.dst_addr}}</div>
+                            <div class="nesto">Destination Port: {{alert.dst_port}}</div>
+                            <div class="nesto">Ethernet IP Destination: {{alert.eth_dst}}</div>
+                            <div class="nesto">Ethernet IP Length: {{alert.eth_len}}</div>
+                        </div>
+                        <div class="test-col">
+                            <div class="nesto">Ethernet IP Source: {{alert.eth_src}}</div>
+                            <div class="nesto">EtherType: {{alert.eth_type}}</div>
+                            <div class="nesto">Gid: {{alert.gid}}</div>
+                            <div class="nesto">IP ID: {{alert.ip_id}}</div>
+                            <div class="nesto">IP Length: {{alert.ip_len}}</div>
+                            <div class="nesto">Message: {{alert.msg}}</div>
+                        </div>
+                        <div class="test-col">
+                            <div class="nesto">Packet Gen: {{alert.pkt_gen}}</div>
+                            <div class="nesto">Packet Length: {{alert.pkt_len}}</div>
+                            <div class="nesto">Num. of Packets: {{alert.pkt_num}}</div>
+                            <div class="nesto">Priority: {{alert.priority}}</div>
+                            <div class="nesto">Protocol: {{alert.proto}}</div>
+                            <div class="nesto">Rev: {{alert.rev}}</div>
+                        </div>
+                        <div class="test-col">
+                            <div class="nesto">Rule: {{alert.rule}}</div>
+                            <div class="nesto">Service: {{alert.service}}</div>
+                            <div class="nesto">Sid: {{alert.sid}}</div>
+                            <div class="nesto">Source IP: {{alert.src_addr}}</div>
+                            <div class="nesto">TCP Ack: {{alert.tcp_ack}}</div>
+                            <div class="nesto">TCP Length: {{alert.tcp_len}}</div>
+                        </div>
+                        <div class="test-col">
+                            <div class="nesto">TCP Seq: {{alert.tcp_seq}}</div>
+                            <div class="nesto">TCP Window: {{alert.tcp_win}}</div>
+                            <div class="nesto">TCP Flags: {{alert.tcp_flags}}</div>
+                            <div class="nesto">TOS: {{alert.tos}}</div>
+                            <div class="nesto">TTL: {{alert.ttl}}</div>
+                            <div class="nesto">Timestamp: {{alert.timestamp}}</div>
+                        </div>
+                    </div>
+                </accordion-group>
+            </accordion>
+        </div>
+    </div>
+    <div class="row">
+        <div class="column">
+            <div class="txt">Top source addresses</div>
+            <ul class="list-group" *ngFor="let src of top_src">
+                <li class="list-group-item">{{src[0]}}
+                    <span class="badge badge-primary badge-pill">{{src[1]}}</span>
+                </li>
+            </ul>
+        </div>
+        <div class="column">
+            <div class="txt">Top classifications</div>
+            <ul class="list-group" *ngFor="let class of top_class">
+                <li class="list-group-item">{{class[0]}}
+                    <span class="badge badge-primary badge-pill">{{class[1]}}</span>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="row">
+        <div class="column">
+            <div class="txt">Top priorities</div>
+            <ul class="list-group" *ngFor="let prior of top_prior">
+                <li class="list-group-item">{{prior[0]}}
+                    <span class="badge badge-primary badge-pill">{{prior[1]}}</span>
+                </li>
+            </ul>
+        </div>
+        <div class="column">
+            <div class="txt">Top dates</div>
+            <ul class="list-group" *ngFor="let date of top_date">
+                <li class="list-group-item">{{date[0]}}
+                    <span class="badge badge-primary badge-pill">{{date[1]}}</span> </li>
+            </ul>
+        </div>
+    </div>
+</div>
