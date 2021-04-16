@@ -2,13 +2,12 @@ const app = require('express')();
 const http = require('http').Server(app);
 const io = require('socket.io')(http);
 const fs = require('fs');
+const filePath = '/var/log/snort/alert_json.txt';
+
 io.set('origins', 'http://localhost:4200');
 
-const filePath = '/var/log/snort/alert_json.txt';
-//const filePath = '/home/nikola/Desktop/nesto.txt';
-
 app.get('/', (req, res) => {
-    res.send('<h1>Hey socket<h1>');
+    res.send('<h1>Hey!<h1>');
 });
 
 io.on('connection', (socket) => {
